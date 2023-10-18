@@ -44,7 +44,6 @@ class ActivityProcessor:
 
         """
         df['ts_lead'] = df.groupby('activity_id')['timestamp'].shift(-1)
-        df['ts_lead'] = df['ts_lead'].astype("Int64")
         df['act_stg_lead'] = df.groupby('activity_id')['activity_stage'].shift(-1)
         if is_scorable_activity:
             df['score_lead'] = df.groupby('activity_id')['score'].shift(-1)
