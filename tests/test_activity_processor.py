@@ -42,8 +42,8 @@ class TestProcessor:
         df_lead = processor.add_lead_columns(df=df_quiz, is_scorable_activity=True)
         df_duration = processor.calculate_activity_duration(df_lead)
         df_no_null = processor.remove_null_stages(df=df_duration)
-        expected_results = pd.read_csv('activity_logs_quiz_result', sep="\t")['activity_duration'].values
-        assert df_no_null['activity_duration'].values ==expected_results
+        expected_results = pd.read_csv('activity_logs_quiz_result', sep="\t")['activity_duration'].values.tolist()
+        assert df_no_null['activity_duration'].values.tolist() == expected_results
 
     def test_drop_score_column(self, df, processor):
         assert 'score' in df.columns
