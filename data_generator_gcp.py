@@ -22,7 +22,7 @@ def generate_data():
 
     dest = f'raw_data/data_{seed}.csv'
     print(f"Uploading generated table to: {dest}")
-    bucket.blob(dest).upload_from_string(df.to_csv(), 'text/csv')
+    bucket.blob(dest).upload_from_string(df.to_csv(index=False), 'text/csv')
 
 
 if __name__ == "__main__":
