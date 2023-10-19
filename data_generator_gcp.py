@@ -23,6 +23,7 @@ def generate_data(request=None):
     dest = f'raw_data/data_{seed}.csv'
     print(f"Uploading generated table to: {dest}")
     bucket.blob(dest).upload_from_string(df.to_csv(index=False), 'text/csv')
+    return {"Status": "Success"}
 
 
 if __name__ == "__main__":
