@@ -43,7 +43,7 @@ def process_activities(df):
 
 
 def upload_to_bq(df, table_name):
-    df.to_gbq(f"thinking-heaven-281113.activity_tables.{table_name}", if_exists="append", progress_bar=False)
+    df.to_gbq(f"thinking-heaven-281113.activity_tables_gcs.{table_name}", if_exists="append", progress_bar=False)
 
 
 def update_logs(file_name):
