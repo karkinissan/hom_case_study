@@ -3,8 +3,6 @@ from datetime import datetime
 from google.cloud import storage
 from activity_processor import ActivityProcessor
 
-bucket_name = "hom_case_study"
-
 
 def list_bucket_files(bucket_name):
     """Lists all the blobs in the bucket."""
@@ -56,9 +54,10 @@ def update_logs(file_name):
 
 
 def activity_process_to_bq(event, context):
-    print("Getting file list in bucket")
     bucket_name = event['bucket']
     file_name = event['name']
+    if bucket_name != "hom_case_study" or "raw_data" not in file_name:
+        return {"Status": f"No relevant files to ingest."}
     file_path = f"gs://{bucket_name}/{file_name}"
     print(f"File to ingest: {file_path}")
 
