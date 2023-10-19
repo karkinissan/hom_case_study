@@ -53,7 +53,7 @@ def update_logs(file_name):
     df.to_gbq(f"thinking-heaven-281113.activity_tables_gcs.processing_logs", if_exists="append", progress_bar=False)
 
 
-def activity_process_to_bq(event, context):
+def activity_process_gcs_to_bq(event, context):
     bucket_name = event['bucket']
     file_name = event['name']
     if bucket_name != "hom_case_study" or "raw_data" not in file_name:
@@ -76,4 +76,4 @@ def activity_process_to_bq(event, context):
 
 
 if __name__ == "__main__":
-    activity_process_to_bq()
+    activity_process_gcs_to_bq()
