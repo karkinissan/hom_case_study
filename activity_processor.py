@@ -52,6 +52,7 @@ class ActivityProcessor:
     def remove_null_stages(self, df):
         """
         Remove rows where 'act_stg_lead' is null.
+        This also removes malformed records that have started, but not finished.
 
         Args:
             df (pd.DataFrame): Input DataFrame.
