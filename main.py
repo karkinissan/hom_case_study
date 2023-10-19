@@ -1,0 +1,2 @@
+from data_generator_gcp import generate_data
+from activity_processor_bq import activity_process_to_bq
