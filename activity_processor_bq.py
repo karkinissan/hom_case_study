@@ -55,7 +55,7 @@ def update_logs(file_name):
     df.to_gbq(f"thinking-heaven-281113.activity_tables.processing_logs", if_exists="append", progress_bar=False)
 
 
-def activity_process_to_bq():
+def activity_process_to_bq(request=None):
     print("Getting file list in bucket")
     files_in_gcp = list_bucket_files(bucket_name)
 

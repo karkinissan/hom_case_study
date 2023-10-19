@@ -9,7 +9,7 @@ random.seed(seed)
 np.random.seed = seed
 
 
-def generate_data():
+def generate_data(request=None):
     print(f"Dummy generation started. Seed: {seed}")
     start_date = "2023-01-01"
     end_date = "2023-01-31"
