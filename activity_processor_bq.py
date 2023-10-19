@@ -80,7 +80,7 @@ def activity_process_to_bq(request=None):
         print("Uploading logs")
         update_logs(file_name)
     print("Complete")
-    return {"Status": f"Files ingested {len(new_files)}"}
+    return {"Status": f"Files ingested: {len(new_files)}"}
 
 
 if __name__ == "__main__":
